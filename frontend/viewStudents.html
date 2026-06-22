@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Students</title>
+
+    <style>
+        body{
+            font-family:Arial,sans-serif;
+            padding:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th,td{
+            border:1px solid black;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background-color:#007bff;
+            color:white;
+        }
+    </style>
+
+</head>
+<button onclick="location.href='index.html'">
+    Home
+</button>
+<body>
+
+<h2>Student List</h2>
+<h3 id="studentCount"></h3>
+<input
+    type="text"
+    id="search"
+    placeholder="Search by Name"
+    onkeyup="searchStudent()"
+>
+<br><br>
+<h3 id="studentCount"></h3>
+<table>
+
+    <thead>
+        <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Department</th>
+    <th>Year</th>
+    <th>Action</th>
+</tr>
+    </thead>
+
+    <tbody id="studentTable">
+    </tbody>
+
+</table>
+
+<script>
+
+async function loadStudents(){
+
+    const response = await fetch(
+        "http://localhost:5000/api/students"
+    );
+
+    const students = await response.json();
+    document.getElementById("studentCount").innerText =
+    "Total Students: " + students.length;
+
+    let rows = "";
+
+    students.forEach(student => {
+
+    rows += `
+    <tr>
+        <td>${student.name}</td>
+        <td>${student.email}</td>
+        <td>${student.department}</td>
+        <td>${student.year}</td>
+        <td>
+            <button onclick="deleteStudent('${student._id}')">
+                Delete
+            </button>
+        </td>
+    </tr>
+    `;
+
+});
+
+    document.getElementById("studentTable").innerHTML = rows;
+}
+
+loadStudents();
+function searchStudent(){
+
+    const searchValue =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    const rows =
+        document.querySelectorAll("#studentTable tr");
+
+    rows.forEach(row => {
+
+        const name =
+            row.cells[0]
+            .innerText
+            .toLowerCase();
+
+        if(name.includes(searchValue)){
+            row.style.display = "";
+        }
+        else{
+            row.style.display = "none";
+        }
+
+    });
+
+}
+async function deleteStudent(id){
+
+await fetch(
+    `http://localhost:5000/api/students/${id}`,
+    {
+        method: "DELETE"
+    }
+);
+
+loadStudents();
+
+}
+
+</script>
+
+</body>
+</html>
