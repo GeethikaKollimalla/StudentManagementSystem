@@ -1,0 +1,215 @@
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
+    min-height:100vh;
+}
+
+.dashboard{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+.title{
+
+    color:white;
+
+    font-size:3rem;
+
+    margin-bottom:40px;
+
+    text-align:center;
+}
+
+.button-container{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card-button{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    width:280px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.15);
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    text-align:center;
+}
+.card-button:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,0.25);
+}
+
+.card-button h3{
+  color:#007bff;
+}
+
+.card-button p{
+
+    color:#555;
+
+    margin-top:10px;
+
+    line-height:1.5;
+}
+.form-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.form-card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+
+    width:100%;
+    max-width:500px;
+}
+
+.form-card h2{
+    text-align:center;
+    color:#007bff;
+}
+
+.form-card input,
+.form-card select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+.form-card button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#007bff;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.form-card button:hover{
+    background:#0056b3;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#007bff;
+    color:white;
+}
+
+th,
+td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f5f5f5;
+}
+.navbar{
+
+    background:white;
+
+    padding:15px 30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-title{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#007bff;
+}
+
+.navbar-links{
+
+    display:flex;
+
+    gap:20px;
+}
+
+.navbar-links button{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:500;
+}
+
+.navbar-links button:hover{
+
+    color:#007bff;
+}
+.footer{
+
+    background:white;
+
+    text-align:center;
+
+    padding:15px;
+
+    margin-top:40px;
+
+    box-shadow:0 -2px 10px rgba(0,0,0,0.1);
+}
+.form-card table{
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.form-card{
+    background:white;
+}
